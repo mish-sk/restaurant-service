@@ -25,7 +25,7 @@ class Dish(models.Model):
     cooks = models.ManyToManyField(Cook, related_name="dishes")
 
     class Meta:
-        ordering = "name"
+        ordering = ["name"]
 
     def __str__(self):
         return self.name
