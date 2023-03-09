@@ -5,9 +5,16 @@ from restaurant.models import Cook, Dish, DishType
 
 
 @admin.register(Cook)
-class CookAdmin(admin.ModelAdmin):
+class CookAdmin(UserAdmin):
     list_display = UserAdmin.list_display
 
 
-admin.register(Dish)
-admin.register(DishType)
+@admin.register(Dish)
+class DishAdmin(admin.ModelAdmin):
+    search_fields = ("name",)
+    list_filter = ("dish_type",)
+
+
+@admin.register(DishType)
+class DishTypeAdmin(admin.ModelAdmin):
+    search_fields = ("name",)
