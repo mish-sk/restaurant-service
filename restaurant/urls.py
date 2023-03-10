@@ -12,6 +12,11 @@ urlpatterns = [
         CookListView.as_view(),
         name="cook-list",
     ),
+    path(
+        "cooks/<int:pk>/",
+        CookDetailView.as_view(),
+        name="cook-detail",
+    ),
 ]
 
 app_name = "restaurant"

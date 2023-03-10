@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h4>{{ cook.first_name }} {{ cook.last_name }}</h4>
+  <h4>Dishes list:</h4>
+  <h5>
+    <ul>
+      {% for dish in cook.dishes.all %}
+        <li>{{ dish.name }} ({{ dish.dish_type }})
+          <br>
+          Price: {{ dish.price }}
+          <br>
+          {{ dish.description }}
+        </li>
+      {% endfor %}
+    </ul>
+  </h5>
+{% endblock %}

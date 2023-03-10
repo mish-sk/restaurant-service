@@ -25,3 +25,7 @@ class CookListView(generic.ListView):
     model = Cook
     # paginate_by = 3
 
+
+class CookDetailView(generic.DetailView):
+    model = Cook
+    queryset = Cook.objects.prefetch_related("dishes__dish_type")
