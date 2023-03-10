@@ -5,7 +5,7 @@
     <p>Welcome to the Best Restaurant Ever!</p>
     <p>The Restaurant service has the following record counts:</p>
     <ul>
-        <li><strong>Cooks:</strong> {{ num_cooks }}</li>
+        <li><a href="{% url "restaurant:cook-list" %}"><strong>Cooks:</strong> </a>{{ num_cooks }}</li>
         <li><strong>Dishes:</strong> {{ num_dishes }}</li>
         <li><strong>Dish types:</strong> {{ num_dish_types }}</li>
     </ul>
