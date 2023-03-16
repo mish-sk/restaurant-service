@@ -2,7 +2,7 @@ from django.urls import path
 
 from .views import (
     index,
-    CookListView, CookDetailView, DishViewList, DishDetailView,
+    CookListView, CookDetailView, DishListView, DishDetailView,
 )
 
 urlpatterns = [
@@ -19,7 +19,7 @@ urlpatterns = [
     ),
     path(
         "dishes/",
-        DishViewList.as_view(),
+        DishListView.as_view(),
         name="dish-list",
     ),
     path(
