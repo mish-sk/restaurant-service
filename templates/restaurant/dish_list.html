@@ -2,6 +2,7 @@
 
 {% block content %}
    <h1>Dishes list</h1>
+  <a href="{% url "restaurant:dish-form" %}">Add new dish</a>
   {% if dish_list %}
     <ul>
       {% for dish in dish_list %}
