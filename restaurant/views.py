@@ -1,6 +1,8 @@
 from typing import Any, List
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
 from restaurant.models import Cook, Dish, DishType
@@ -38,3 +40,9 @@ class DishListView(generic.ListView):
 class DishDetailView(generic.DetailView):
     model = Dish
     queryset = Dish.objects.prefetch_related("cooks__dishes__dish_type")
+
+
+class DishCreateView(generic.CreateView):
+    model = Dish
+    fields = "__all__"
+    success_url = reverse_lazy("restaurant:dish-list")
