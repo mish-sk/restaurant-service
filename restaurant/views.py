@@ -46,3 +46,9 @@ class DishCreateView(generic.CreateView):
     model = Dish
     fields = "__all__"
     success_url = reverse_lazy("restaurant:dish-list")
+
+
+class DishUpdateView(generic.UpdateView):
+    model = Dish
+    fields = "__all__"
+    success_url = reverse_lazy("restaurant:dish-list")
