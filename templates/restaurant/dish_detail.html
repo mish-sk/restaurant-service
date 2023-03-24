@@ -2,6 +2,10 @@
 
 {% block content %}
   <h4>{{ dish.name }}</h4>
+  <a href="{% url "restaurant:dish_update" pk=dish.id %}">Update Info</a>
+  <br><br>
+  <a href="{% url "restaurant:dish_delete" pk=dish.id %}">Delete Dish</a>
+
 
   <h5>Dish type: {{ dish.dish_type.name }}</h5>
   <h5>Price: {{ dish.price }}</h5>
