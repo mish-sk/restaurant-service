@@ -5,7 +5,6 @@
   {% if dishtype_list %}
     <ul>
       {% for type in dishtype_list %}
-{#        <li><a href="{% url "restaurant:dish-detail" pk=dish.id %}">{{ dish.name }}</a></li>#}
           <li>{{ type.name }}</li>
       {% endfor %}
     </ul>
