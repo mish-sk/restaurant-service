@@ -7,6 +7,6 @@
     <ul>
         <li><a href="{% url "restaurant:cook-list" %}"><strong>Cooks:</strong> </a>{{ num_cooks }}</li>
         <li><strong><a href="{% url "restaurant:dish-list" %}">Dishes:</a></strong> {{ num_dishes }}</li>
-        <li><strong>Dish types:</strong> {{ num_dish_types }}</li>
+        <li><strong><a href="{% url "restaurant:dishtype-list" %}">Dish types:</a></strong> {{ num_dish_types }}</li>
     </ul>
 {% endblock %}
