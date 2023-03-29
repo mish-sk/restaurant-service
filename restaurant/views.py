@@ -1,10 +1,12 @@
 from typing import Any, List
 
+from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
+from restaurant.forms import CookCreationForm
 from restaurant.models import Cook, Dish, DishType
 
 
@@ -31,6 +33,17 @@ class CookListView(generic.ListView):
 class CookDetailView(generic.DetailView):
     model = Cook
     queryset = Cook.objects.prefetch_related("dishes__dish_type")
+
+
+class CookCreateView(generic.CreateView):
+    model = Cook
+    form_class = CookCreationForm
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+
+        return redirect("restaurant:index")
 
 
 class DishListView(generic.ListView):
